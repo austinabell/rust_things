@@ -5,26 +5,26 @@ pub struct MyStruct {
 }
 
 impl MyStruct {
+    // * This is preferred constructor in most cases
+    pub fn new_owned(bytes: Vec<u8>, my_string: String) -> Self {
+        Self { my_string, bytes }
+    }
     pub fn new_ref(bz: &[u8], m_str: &str) -> Self {
         Self {
             my_string: m_str.to_owned(),
             bytes: bz.to_vec(),
         }
     }
-    pub fn new_owned(bytes: Vec<u8>, my_string: String) -> Self {
-        Self { my_string, bytes }
-    }
     pub fn update_string(&mut self, u_string: &str) {
         self.my_string = u_string.to_owned();
     }
 }
 
-fn print_struct(s: MyStruct) {
-    println!("{:?}", s);
+fn move_struct(_s: MyStruct) {
+    // Doesn't matter
 }
-
-fn print_struct_ref(s: &MyStruct) {
-    println!("{:?}", s);
+fn pass_ref(_s: &MyStruct) {
+    // Doesn't matter
 }
 
 pub fn generate_new_ref() -> MyStruct {
@@ -35,8 +35,8 @@ pub fn generate_new_ref() -> MyStruct {
     let mut return_struct: MyStruct = MyStruct::new_ref(&gen_bz, &gen_string);
 
     // This struct can be printed only if by reference
-    print_struct_ref(&return_struct);
-    print_struct(return_struct.clone());
+    pass_ref(&return_struct);
+    move_struct(return_struct.clone());
 
     let new_string = "this is the new string";
 
