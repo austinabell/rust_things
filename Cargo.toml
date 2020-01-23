@@ -1,4 +1,6 @@
 [workspace]
 members = [
-    "basic",
+    "0basic",
+    "1parameters",
+    "2accessors"
 ]
