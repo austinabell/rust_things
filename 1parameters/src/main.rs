@@ -38,8 +38,7 @@ struct StructWithBytes<'bz> {
     bytes: &'bz mut [u8],
 }
 
-/// Can pass back a reference to the data if the lifetime of data in parameters outlives or same
-// * lifetimes not needed here, since they will always have same here, just to make point clear
+// * lifetimes are needed here though because there are two possible lifetimes
 fn struct_bytes<'param: 'ret, 'ret>(st: &'param StructWithBytes) -> &'ret [u8] {
     &st.bytes
 }
