@@ -3,5 +3,6 @@ members = [
     "0basic",
     "1parameters",
     "2accessors",
-    "3traits"
+    "3traits",
+    "4generics",
 ]

@@ -33,6 +33,6 @@ where
     T: fmt::Debug + MyOtherTrait,
 {
     fn my_print(&self) {
-        println!("I AM MY OTHER TRAIT!");
+        println!("I AM MY OTHER TRAIT (and debug)!");
     }
 }
