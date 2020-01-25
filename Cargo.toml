@@ -5,4 +5,5 @@ members = [
     "2accessors",
     "3traits",
     "4generics",
+    "errors",
 ]
